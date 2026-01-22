@@ -78,6 +78,68 @@ async function getChallengeTitle(challengeNumber) {
     }
 }
 
+// Load and display all challenges as a list
+async function loadChallengeList() {
+    const loadingEl = document.getElementById('loading');
+    const errorEl = document.getElementById('error');
+    const contentEl = document.getElementById('challenge-content');
+    const pageTitleEl = document.querySelector('.page-title');
+    
+    loadingEl.style.display = 'block';
+    errorEl.style.display = 'none';
+    contentEl.innerHTML = '';
+    
+    try {
+        const response = await fetch('link-lists/challenges.csv');
+        if (!response.ok) {
+            throw new Error('Could not load challenges list');
+        }
+        
+        const csvText = await response.text();
+        const challenges = parseCSV(csvText);
+        
+        if (challenges.length === 0) {
+            throw new Error('No challenges found');
+        }
+        
+        // Update page title
+        pageTitleEl.textContent = 'Reference Lists';
+        document.title = 'Reference Lists | ODI';
+        
+        // Create the list
+        const section = document.createElement('section');
+        section.className = 'reference-section';
+        
+        const list = document.createElement('ul');
+        list.className = 'reference-list';
+        
+        challenges.forEach(challenge => {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.className = 'reference-link';
+            link.href = `?challenge=${challenge.challenge}`;
+            
+            const titleSpan = document.createElement('span');
+            titleSpan.className = 'reference-title';
+            titleSpan.textContent = challenge.title || `Challenge ${challenge.challenge}`;
+            
+            link.appendChild(titleSpan);
+            li.appendChild(link);
+            list.appendChild(li);
+        });
+        
+        section.appendChild(list);
+        contentEl.appendChild(section);
+        loadingEl.style.display = 'none';
+        
+    } catch (error) {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+        errorEl.textContent = `Error loading challenges: ${error.message}`;
+        console.error('Error loading challenges:', error);
+    }
+}
+
 // Load and display challenge
 async function loadChallenge(challengeNumber) {
     const loadingEl = document.getElementById('loading');
@@ -90,10 +152,9 @@ async function loadChallenge(challengeNumber) {
     errorEl.style.display = 'none';
     contentEl.innerHTML = '';
     
+    // If no challenge specified, show the list of all challenges
     if (!challengeNumber || isNaN(challengeNumber)) {
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
-        errorEl.textContent = 'Please specify a challenge number in the URL (e.g., ?challenge=1)';
+        loadChallengeList();
         return;
     }
     
