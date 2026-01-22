@@ -133,6 +133,26 @@ async function loadChallenge(challengeNumber) {
     }
 }
 
+// Group data by category
+function groupByCategory(data) {
+    const groups = {};
+    const uncategorised = [];
+    
+    data.forEach(item => {
+        const category = item.category ? item.category.trim() : '';
+        if (category) {
+            if (!groups[category]) {
+                groups[category] = [];
+            }
+            groups[category].push(item);
+        } else {
+            uncategorised.push(item);
+        }
+    });
+    
+    return { groups, uncategorised };
+}
+
 // Render challenge data
 function renderChallenge(data, challengeNumber, challengeTitle) {
     const contentEl = document.getElementById('challenge-content');
@@ -140,42 +160,92 @@ function renderChallenge(data, challengeNumber, challengeTitle) {
     const section = document.createElement('section');
     section.className = 'reference-section';
     
-    // Don't add h2 title here since we're using the h1 page title instead
+    // Group resources by category
+    const { groups, uncategorised } = groupByCategory(data);
+    const categoryNames = Object.keys(groups);
     
-    const list = document.createElement('ul');
-    list.className = 'reference-list';
+    // If there are categories, render grouped content
+    if (categoryNames.length > 0) {
+        // Render each category group
+        categoryNames.forEach(categoryName => {
+            // Add sub-heading
+            const subHeading = document.createElement('h3');
+            subHeading.textContent = categoryName;
+            section.appendChild(subHeading);
+            
+            // Add resource list for this category
+            const list = document.createElement('ul');
+            list.className = 'reference-list';
+            
+            groups[categoryName].forEach(item => {
+                const li = createResourceListItem(item);
+                list.appendChild(li);
+            });
+            
+            section.appendChild(list);
+        });
+        
+        // Render any uncategorised items at the end
+        if (uncategorised.length > 0) {
+            const subHeading = document.createElement('h3');
+            subHeading.textContent = 'Other Resources';
+            section.appendChild(subHeading);
+            
+            const list = document.createElement('ul');
+            list.className = 'reference-list';
+            
+            uncategorised.forEach(item => {
+                const li = createResourceListItem(item);
+                list.appendChild(li);
+            });
+            
+            section.appendChild(list);
+        }
+    } else {
+        // No categories - render flat list (backwards compatible)
+        const list = document.createElement('ul');
+        list.className = 'reference-list';
+        
+        data.forEach(item => {
+            const li = createResourceListItem(item);
+            list.appendChild(li);
+        });
+        
+        section.appendChild(list);
+    }
     
-    data.forEach(item => {
-        const li = document.createElement('li');
-        const link = document.createElement('a');
-        link.className = 'reference-link';
-        link.href = item.url || '#';
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        
-        const titleSpan = document.createElement('span');
-        titleSpan.className = 'reference-title';
-        titleSpan.textContent = item.title || 'Untitled';
-        
-        const descSpan = document.createElement('span');
-        descSpan.className = 'reference-description';
-        descSpan.textContent = item.description || '';
-        
-        link.appendChild(titleSpan);
-        link.appendChild(descSpan);
-        li.appendChild(link);
-        list.appendChild(li);
-    });
-    
-    section.appendChild(list);
     contentEl.appendChild(section);
     
     // Update page title (browser tab)
     if (challengeTitle) {
-        document.title = `${challengeTitle} | GIZ Reference Lists`;
+        document.title = `${challengeTitle} | ODI Reference Lists`;
     } else {
-        document.title = `Challenge ${challengeNumber} | GIZ Reference Lists`;
+        document.title = `Challenge ${challengeNumber} | ODI Reference Lists`;
     }
+}
+
+// Create a single resource list item
+function createResourceListItem(item) {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.className = 'reference-link';
+    link.href = item.url || '#';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'reference-title';
+    titleSpan.textContent = item.title || 'Untitled';
+    
+    const descSpan = document.createElement('span');
+    descSpan.className = 'reference-description';
+    descSpan.textContent = item.description || '';
+    
+    link.appendChild(titleSpan);
+    link.appendChild(descSpan);
+    li.appendChild(link);
+    
+    return li;
 }
 
 // Initialize on page load
