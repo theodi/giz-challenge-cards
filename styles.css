@@ -52,8 +52,8 @@ body {
     font-weight: 700;
     color: var(--odi-white);
     text-decoration: none;
-    letter-spacing: -0.02em;
-    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .logo a:hover {
@@ -80,6 +80,58 @@ body {
 
 .menu-toggle:hover span {
     background-color: var(--odi-cyan);
+}
+
+/* Navigation Menu */
+.main-nav {
+    position: relative;
+}
+
+.nav-menu {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background-color: var(--odi-blue-dark);
+    border: 1px solid var(--odi-gray);
+    border-radius: 4px;
+    list-style: none;
+    min-width: 280px;
+    padding: 0.5rem 0;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.nav-menu.is-open {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--odi-white);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    background-color: var(--odi-blue);
+    color: var(--odi-white);
+}
+
+.nav-menu a:focus {
+    outline: 2px solid var(--odi-cyan);
+    outline-offset: -2px;
 }
 
 /* Main Content */
@@ -133,6 +185,21 @@ body {
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--odi-blue-dark);
+}
+
+/* Sub-headings for grouping resources by theme */
+.reference-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--odi-blue-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--odi-blue);
+}
+
+.reference-section h3:first-of-type {
+    margin-top: 0;
 }
 
 .reference-list {
