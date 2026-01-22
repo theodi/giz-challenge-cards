@@ -1,12 +1,15 @@
-/* GIZ Brand Colors */
+/* ODI Brand Colors */
+/* NOTE: Please verify these hex values against the official ODI brand book */
 :root {
-    --giz-red: #C80f0f;
-    --giz-red-dark: #C80f0f;
-    --giz-black: #000000;
-    --giz-gray: #333333;
-    --giz-gray-light: #666666;
-    --giz-gray-lighter: #F5F5F5;
-    --giz-white: #FFFFFF;
+    --odi-blue: #2254F4;
+    --odi-blue-dark: #1A3FC7;
+    --odi-pink: #E6007E;
+    --odi-pink-dark: #B8005F;
+    --odi-black: #1D1D1B;
+    --odi-gray: #333333;
+    --odi-gray-light: #666666;
+    --odi-gray-lighter: #F5F5F5;
+    --odi-white: #FFFFFF;
 }
 
 /* Reset and Base Styles */
@@ -18,8 +21,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    color: var(--giz-black);
-    background-color: var(--giz-white);
+    color: var(--odi-black);
+    background-color: var(--odi-white);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
@@ -28,8 +31,8 @@ body {
 
 /* Header Styles */
 .site-header {
-    background-color: var(--giz-white);
-    border-bottom: 1px solid var(--giz-gray-lighter);
+    background-color: var(--odi-white);
+    border-bottom: 1px solid var(--odi-gray-lighter);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -48,14 +51,14 @@ body {
 .logo a {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--giz-red);
+    color: var(--odi-blue);
     text-decoration: none;
     letter-spacing: -0.02em;
     text-transform: lowercase;
 }
 
 .logo a:hover {
-    color: var(--giz-red-dark);
+    color: var(--odi-blue-dark);
 }
 
 .menu-toggle {
@@ -71,13 +74,13 @@ body {
 .menu-toggle span {
     width: 24px;
     height: 2px;
-    background-color: var(--giz-red);
+    background-color: var(--odi-blue);
     display: block;
     transition: all 0.3s ease;
 }
 
 .menu-toggle:hover span {
-    background-color: var(--giz-red-dark);
+    background-color: var(--odi-blue-dark);
 }
 
 /* Main Content */
@@ -95,7 +98,7 @@ body {
 .page-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--giz-black);
+    color: var(--odi-black);
     margin-bottom: 3rem;
     line-height: 1.2;
 }
@@ -103,17 +106,17 @@ body {
 /* Loading and Error Messages */
 .loading-message {
     font-size: 1.125rem;
-    color: var(--giz-gray);
+    color: var(--odi-gray);
     text-align: center;
     padding: 2rem;
 }
 
 .error-message {
     font-size: 1.125rem;
-    color: var(--giz-red);
+    color: var(--odi-pink);
     background-color: #FFF5F8;
-    border: 1px solid var(--giz-red);
-    border-left: 4px solid var(--giz-red);
+    border: 1px solid var(--odi-pink);
+    border-left: 4px solid var(--odi-pink);
     padding: 1.25rem;
     margin-bottom: 2rem;
     border-radius: 4px;
@@ -127,10 +130,10 @@ body {
 .reference-section h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    color: var(--giz-black);
+    color: var(--odi-black);
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--giz-red);
+    border-bottom: 2px solid var(--odi-blue);
 }
 
 .reference-list {
@@ -144,17 +147,17 @@ body {
 .reference-link {
     display: block;
     padding: 1.25rem;
-    background-color: var(--giz-white);
-    border: 1px solid var(--giz-gray-lighter);
-    border-left: 4px solid var(--giz-red);
+    background-color: var(--odi-white);
+    border: 1px solid var(--odi-gray-lighter);
+    border-left: 4px solid var(--odi-blue);
     text-decoration: none;
-    color: var(--giz-black);
+    color: var(--odi-black);
     transition: all 0.2s ease;
 }
 
 .reference-link:hover {
-    background-color: var(--giz-gray-lighter);
-    border-left-color: var(--giz-red-dark);
+    background-color: var(--odi-gray-lighter);
+    border-left-color: var(--odi-pink);
     transform: translateX(4px);
 }
 
@@ -162,20 +165,20 @@ body {
     display: block;
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--giz-black);
+    color: var(--odi-black);
     margin-bottom: 0.5rem;
 }
 
 .reference-description {
     display: block;
     font-size: 0.9375rem;
-    color: var(--giz-gray-light);
+    color: var(--odi-gray-light);
     line-height: 1.5;
 }
 
 /* Footer */
 .site-footer {
-    background-color: var(--giz-gray-lighter);
+    background-color: var(--odi-gray-lighter);
     padding: 2rem 0;
     margin-top: auto;
 }
@@ -188,7 +191,7 @@ body {
 }
 
 .site-footer p {
-    color: var(--giz-gray);
+    color: var(--odi-gray);
     font-size: 0.875rem;
 }
 
