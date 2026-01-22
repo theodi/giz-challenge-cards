@@ -1,315 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Lists | ODI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/images/odi-logo-white.svg" alt="Open Data Institute" class="logo-image">
+                    <span class="logo-text">ODI</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#challenge-1">Challenge 1</a></li>
+                    <li><a href="#challenge-2">Challenge 2</a></li>
+                    <li><a href="#challenge-3">Challenge 3</a></li>
+                    <li><a href="#challenge-4">Challenge 4</a></li>
+                    <li><a href="#challenge-5">Challenge 5</a></li>
+                    <li><a href="#challenge-6">Challenge 6</a></li>
+                    <li><a href="#challenge-7">Challenge 7</a></li>
+                    <li><a href="#challenge-8">Challenge 8</a></li>
+                    <li><a href="#challenge-9">Challenge 9</a></li>
+                    <li><a href="#challenge-10">Challenge 10</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-/* ODI Brand Colors - from official ODI stylesheet */
-:root {
-    --odi-blue-dark: #072589;
-    --odi-blue: #178cff;
-    --odi-cyan: #6df8ff;
-    --odi-black: #000000;
-    --odi-gray: #333333;
-    --odi-gray-light: #666666;
-    --odi-gray-border: #e2e6e9;
-    --odi-gray-lighter: #F5F5F5;
-    --odi-white: #FFFFFF;
-}
+    <main class="main-content">
+        <div class="content-container">
+            <h1 class="page-title">Reference Lists</h1>
+            
+            <div id="loading" class="loading-message">Loading challenge...</div>
+            <div id="error" class="error-message" style="display: none;"></div>
+            <div id="challenge-content"></div>
+        </div>
+    </main>
 
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; <a href="https://theodi.org">The Open Data Institute (ODI)</a>. 2025</p>
+        </div>
+    </footer>
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    color: var(--odi-black);
-    background-color: var(--odi-white);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Header Styles */
-.site-header {
-    background-color: var(--odi-blue-dark);
-    border-bottom: 1px solid var(--odi-gray);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--odi-white);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.logo a:hover {
-    color: var(--odi-cyan);
-}
-
-.logo-image {
-    height: 2rem;
-    width: auto;
-}
-
-/* Hide text fallback if logo image loads */
-.logo-image + .logo-text {
-    display: none;
-}
-
-/* Show text if image fails to load */
-.logo-image[src=""] + .logo-text,
-.logo-image:not([src]) + .logo-text {
-    display: inline;
-}
-
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.menu-toggle span {
-    width: 24px;
-    height: 2px;
-    background-color: var(--odi-white);
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle:hover span {
-    background-color: var(--odi-cyan);
-}
-
-/* Navigation Menu */
-.main-nav {
-    position: relative;
-}
-
-.nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: var(--odi-blue-dark);
-    border: 1px solid var(--odi-gray);
-    border-radius: 4px;
-    list-style: none;
-    min-width: 200px;
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-}
-
-.nav-menu.is-open {
-    display: block;
-}
-
-.nav-menu li {
-    margin: 0;
-}
-
-.nav-menu a {
-    display: block;
-    padding: 0.75rem 1.25rem;
-    color: var(--odi-white);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.nav-menu a:hover {
-    background-color: var(--odi-blue);
-    color: var(--odi-white);
-}
-
-.nav-menu a:focus {
-    outline: 2px solid var(--odi-cyan);
-    outline-offset: -2px;
-}
-
-/* Main Content */
-.main-content {
-    flex: 1;
-    padding: 3rem 0;
-}
-
-.content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.page-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--odi-blue);
-    margin-bottom: 3rem;
-    line-height: 1.2;
-}
-
-/* Loading and Error Messages */
-.loading-message {
-    font-size: 1.125rem;
-    color: var(--odi-gray);
-    text-align: center;
-    padding: 2rem;
-}
-
-.error-message {
-    font-size: 1.125rem;
-    color: #c80f0f;
-    background-color: #FFF5F8;
-    border: 1px solid #c80f0f;
-    border-left: 4px solid #c80f0f;
-    padding: 1.25rem;
-    margin-bottom: 2rem;
-    border-radius: 4px;
-}
-
-/* Reference Sections */
-.reference-section {
-    margin-bottom: 4rem;
-}
-
-.reference-section h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--odi-blue);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--odi-blue-dark);
-}
-
-/* Sub-headings for grouping resources by theme */
-.reference-section h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--odi-blue-dark);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    padding-left: 0.75rem;
-    border-left: 3px solid var(--odi-blue);
-}
-
-.reference-section h3:first-of-type {
-    margin-top: 0;
-}
-
-.reference-list {
-    list-style: none;
-}
-
-.reference-list li {
-    margin-bottom: 1rem;
-}
-
-.reference-link {
-    display: block;
-    padding: 1.25rem;
-    background-color: var(--odi-white);
-    border: 1px solid var(--odi-gray-border);
-    border-left: 4px solid var(--odi-blue);
-    text-decoration: none;
-    color: var(--odi-black);
-    transition: all 0.2s ease;
-}
-
-.reference-link:hover {
-    background-color: var(--odi-gray-lighter);
-    border-left-color: var(--odi-blue-dark);
-    transform: translateX(4px);
-}
-
-.reference-title {
-    display: block;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--odi-blue);
-    margin-bottom: 0.5rem;
-}
-
-.reference-description {
-    display: block;
-    font-size: 0.9375rem;
-    color: var(--odi-gray-light);
-    line-height: 1.5;
-}
-
-/* Footer */
-.site-footer {
-    background-color: var(--odi-blue-dark);
-    padding: 2rem 0;
-    margin-top: auto;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    text-align: center;
-}
-
-.site-footer p {
-    color: var(--odi-white);
-    font-size: 0.875rem;
-}
-
-.site-footer a {
-    color: var(--odi-cyan);
-    text-decoration: none;
-}
-
-.site-footer a:hover {
-    color: var(--odi-white);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .header-container {
-        padding: 0 1rem;
-    }
-
-    .content-container {
-        padding: 0 1rem;
-    }
-
-    .page-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .reference-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .reference-link {
-        padding: 1rem;
-    }
-
-    .main-content {
-        padding: 2rem 0;
-    }
-}
+    <script src="app.js"></script>
+    <script>
+        // Toggle mobile menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('is-open');
+        });
+    </script>
+</body>
+</html>
