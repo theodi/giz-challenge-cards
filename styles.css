@@ -189,7 +189,7 @@ body {
 
 /* Sub-headings for grouping resources by theme */
 .reference-section h3 {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--odi-blue-dark);
     margin-top: 2rem;
@@ -297,3 +297,4 @@ body {
         padding: 2rem 0;
     }
 }
+
