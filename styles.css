@@ -1,13 +1,12 @@
-/* ODI Brand Colors */
-/* NOTE: Please verify these hex values against the official ODI brand book */
+/* ODI Brand Colors - from official ODI stylesheet */
 :root {
-    --odi-blue: #2254F4;
-    --odi-blue-dark: #1A3FC7;
-    --odi-pink: #E6007E;
-    --odi-pink-dark: #B8005F;
-    --odi-black: #1D1D1B;
+    --odi-blue-dark: #072589;
+    --odi-blue: #178cff;
+    --odi-cyan: #6df8ff;
+    --odi-black: #000000;
     --odi-gray: #333333;
     --odi-gray-light: #666666;
+    --odi-gray-border: #e2e6e9;
     --odi-gray-lighter: #F5F5F5;
     --odi-white: #FFFFFF;
 }
@@ -31,8 +30,8 @@ body {
 
 /* Header Styles */
 .site-header {
-    background-color: var(--odi-white);
-    border-bottom: 1px solid var(--odi-gray-lighter);
+    background-color: var(--odi-blue-dark);
+    border-bottom: 1px solid var(--odi-gray);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -51,14 +50,14 @@ body {
 .logo a {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--odi-blue);
+    color: var(--odi-white);
     text-decoration: none;
     letter-spacing: -0.02em;
     text-transform: lowercase;
 }
 
 .logo a:hover {
-    color: var(--odi-blue-dark);
+    color: var(--odi-cyan);
 }
 
 .menu-toggle {
@@ -74,13 +73,13 @@ body {
 .menu-toggle span {
     width: 24px;
     height: 2px;
-    background-color: var(--odi-blue);
+    background-color: var(--odi-white);
     display: block;
     transition: all 0.3s ease;
 }
 
 .menu-toggle:hover span {
-    background-color: var(--odi-blue-dark);
+    background-color: var(--odi-cyan);
 }
 
 /* Main Content */
@@ -98,7 +97,7 @@ body {
 .page-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--odi-black);
+    color: var(--odi-blue);
     margin-bottom: 3rem;
     line-height: 1.2;
 }
@@ -113,10 +112,10 @@ body {
 
 .error-message {
     font-size: 1.125rem;
-    color: var(--odi-pink);
+    color: #c80f0f;
     background-color: #FFF5F8;
-    border: 1px solid var(--odi-pink);
-    border-left: 4px solid var(--odi-pink);
+    border: 1px solid #c80f0f;
+    border-left: 4px solid #c80f0f;
     padding: 1.25rem;
     margin-bottom: 2rem;
     border-radius: 4px;
@@ -130,10 +129,10 @@ body {
 .reference-section h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    color: var(--odi-black);
+    color: var(--odi-blue);
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--odi-blue);
+    border-bottom: 2px solid var(--odi-blue-dark);
 }
 
 .reference-list {
@@ -148,7 +147,7 @@ body {
     display: block;
     padding: 1.25rem;
     background-color: var(--odi-white);
-    border: 1px solid var(--odi-gray-lighter);
+    border: 1px solid var(--odi-gray-border);
     border-left: 4px solid var(--odi-blue);
     text-decoration: none;
     color: var(--odi-black);
@@ -157,7 +156,7 @@ body {
 
 .reference-link:hover {
     background-color: var(--odi-gray-lighter);
-    border-left-color: var(--odi-pink);
+    border-left-color: var(--odi-blue-dark);
     transform: translateX(4px);
 }
 
@@ -165,7 +164,7 @@ body {
     display: block;
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--odi-black);
+    color: var(--odi-blue);
     margin-bottom: 0.5rem;
 }
 
@@ -178,7 +177,7 @@ body {
 
 /* Footer */
 .site-footer {
-    background-color: var(--odi-gray-lighter);
+    background-color: var(--odi-blue-dark);
     padding: 2rem 0;
     margin-top: auto;
 }
@@ -191,8 +190,17 @@ body {
 }
 
 .site-footer p {
-    color: var(--odi-gray);
+    color: var(--odi-white);
     font-size: 0.875rem;
+}
+
+.site-footer a {
+    color: var(--odi-cyan);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--odi-white);
 }
 
 /* Responsive Design */
