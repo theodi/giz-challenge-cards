@@ -1,7 +1,6 @@
 /* ODI Brand Colors - from official ODI stylesheet */
 :root {
     --odi-blue-dark: #072589;
-    --odi-blue: #178cff;
     --odi-cyan: #6df8ff;
     --odi-black: #000000;
     --odi-gray: #333333;
@@ -53,11 +52,11 @@ body {
     color: var(--odi-white);
     text-decoration: none;
     letter-spacing: 0.05em;
-    text-transform: uppercase;
 }
 
 .logo a:hover {
-    color: var(--odi-cyan);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
 
 .menu-toggle {
@@ -79,7 +78,7 @@ body {
 }
 
 .menu-toggle:hover span {
-    background-color: var(--odi-cyan);
+    background-color: var(--odi-white);
 }
 
 /* Navigation Menu */
@@ -125,12 +124,14 @@ body {
 }
 
 .nav-menu a:hover {
-    background-color: var(--odi-blue);
+    background-color: var(--odi-blue-dark); 
     color: var(--odi-white);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
 
 .nav-menu a:focus {
-    outline: 2px solid var(--odi-cyan);
+    outline: 2px solid var(--odi-white);
     outline-offset: -2px;
 }
 
@@ -149,7 +150,7 @@ body {
 .page-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--odi-blue);
+    color: var(--odi-blue-dark);
     margin-bottom: 3rem;
     line-height: 1.2;
 }
@@ -181,7 +182,7 @@ body {
 .reference-section h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    color: var(--odi-blue);
+    color: var(--odi-blue-dark);
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--odi-blue-dark);
@@ -195,7 +196,7 @@ body {
     margin-top: 2rem;
     margin-bottom: 1rem;
     padding-left: 0.75rem;
-    border-left: 3px solid var(--odi-blue);
+    border-left: 3px solid var(--odi-blue-dark);
 }
 
 .reference-section h3:first-of-type {
@@ -215,7 +216,7 @@ body {
     padding: 1.25rem;
     background-color: var(--odi-white);
     border: 1px solid var(--odi-gray-border);
-    border-left: 4px solid var(--odi-blue);
+    border-left: 4px solid var(--odi-blue-dark);
     text-decoration: none;
     color: var(--odi-black);
     transition: all 0.2s ease;
@@ -231,7 +232,7 @@ body {
     display: block;
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--odi-blue);
+    color: var(--odi-blue-dark);
     margin-bottom: 0.5rem;
 }
 
@@ -262,7 +263,7 @@ body {
 }
 
 .site-footer a {
-    color: var(--odi-cyan);
+    color: var(--odi-white);
     text-decoration: none;
 }
 
