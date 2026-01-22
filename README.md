@@ -1,6 +1,6 @@
-# GIZ Challenge Card Reference Lists
+# Challenge Card Reference Lists
 
-A dynamic web application for displaying reference lists for GIZ challenge cards. The application loads challenge data from CSV files and renders them dynamically using client-side JavaScript.
+A dynamic web application for displaying reference lists for challenge cards. The application loads challenge data from CSV files and renders them dynamically using client-side JavaScript.
 
 ## Features
 
@@ -13,12 +13,10 @@ A dynamic web application for displaying reference lists for GIZ challenge cards
 ## Project Structure
 
 ```
-giz/
-├── index.html          # Main HTML file (ODI version)
-├── brand/
-│   └── index.html      # GIZ-branded version
+/
+├── index.html          # Main HTML file
 ├── app.js              # JavaScript for CSV parsing and dynamic rendering
-├── styles.css          # Stylesheet with GIZ branding
+├── styles.css          # Stylesheet with ODI branding
 └── link-lists/         # CSV files containing challenge data
     ├── challenges.csv  # Master list of all challenges
     └── Challenge_*.csv # Individual challenge reference lists
@@ -26,14 +24,13 @@ giz/
 
 ## Files
 
-- `index.html` - Main HTML template (ODI version) with navigation menu
-- `brand/index.html` - GIZ-branded version of the template
+- `index.html` - Main HTML template with navigation menu
 - `app.js` - Client-side JavaScript for:
   - CSV parsing with proper quote handling
   - Dynamic content loading from CSV files
   - Category-based grouping of resources
   - URL parameter handling for challenge selection
-- `styles.css` - Responsive stylesheet with GIZ brand colors
+- `styles.css` - Responsive stylesheet with ODI brand colors
 - `link-lists/challenges.csv` - Master CSV file listing all challenges
 - `link-lists/Challenge_*.csv` - Individual CSV files for each challenge's reference list
 
@@ -65,10 +62,12 @@ Each challenge CSV should have the following columns:
 
 ## Brand Colors
 
-- **GIZ Red**: #E20074 (primary accent color)
-- **GIZ Red Dark**: #B8005C (hover states)
+- **ODI Blue Dark**: #072589 (primary brand color, header background)
+- **ODI Cyan**: #6df8ff (accent color)
 - **Black**: #000000 (text)
 - **Gray**: #333333, #666666 (secondary text)
+- **Gray Border**: #e2e6e9 (borders)
+- **Gray Lighter**: #F5F5F5 (light backgrounds)
 - **White**: #FFFFFF (background)
 
 ## Challenges
